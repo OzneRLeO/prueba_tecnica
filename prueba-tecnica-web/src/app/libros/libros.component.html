@@ -1,0 +1,51 @@
+<h2 class ="mb-5">Lista de libros</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr> 
+            <th>Titulo</th>
+            <th>Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(libro of libros; track libro.id){
+            <tr> 
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.descripcion }}</td>
+                <td class="text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-primary"  (click)="comprar(libro)">
+                            Comprar
+                        </button> 
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+<h2 class ="mb-5">Mis libros</h2>
+<table class="table table-hover">
+    <thead>
+        <tr> 
+            <th>Titulo</th>
+            <th>Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(libroc of librosComprados; track libroc.id){
+            <tr> 
+                <td>{{ libroc.titulo }}</td>
+                <td>{{ libroc.descripcion }}</td> 
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+<div class="text-start">
+    <button class="btn btn-primary" routerLink="/">
+            Volver
+    </button>
+</div>

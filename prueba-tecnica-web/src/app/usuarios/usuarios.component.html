@@ -1,0 +1,30 @@
+<h2 class ="mb-5">Seleccione usuario</h2>
+<div class="text-end">
+   
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr> 
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(usuario of usuarios; track usuario.id){
+            <tr>
+                
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellido }}</td>
+                <td class="text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" [routerLink]="[usuario.id, 'misLibros']">
+                            Ver
+                        </button> 
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>

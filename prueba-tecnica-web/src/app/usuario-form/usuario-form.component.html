@@ -1,0 +1,52 @@
+<h2 class="mb-5">
+    @if(usuario){
+        Editar
+      }@else{
+          Nuevo
+      } Usuario
+        
+</h2>
+
+<div class="row row-cols-3 justify-content-center">
+    @if(form){
+        @if(errors.length){
+            <div class="alert alert-danger">
+                <ul>
+                    @for(error of errors; track error){
+                        <li> {{error}} </li>
+                    }
+                </ul>
+            </div>
+        }
+        <form [formGroup] = "form" (ngSubmit) = "save()">
+            <div class="mb-3">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" placeholder="Nombre" class="form-control" formControlName="nombre">
+                @if(form.get('nombre')?.hasError('required') && form.get('nombre')?.touched){
+                    <p class="invalid-feedback d-block">El nombre es obligatorio</p>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" placeholder="Apellido" class="form-control" formControlName="apellido">
+                @if(form.get('apellido')?.hasError('required') && form.get('apellido')?.touched){
+                    <p class="invalid-feedback d-block">El apellido es obligatorio</p>
+                }
+            </div> 
+            <div class="text-end">
+                    <button type="button" class="btn btn-light" routerLink="../../../usuario/list">
+                        Cancelar
+                    </button>
+                    <button class="btn btn-primary ms-2">
+                        @if(usuario){
+                            Actualizar
+                        }@else{
+                            Crear
+                        } 
+                        Usuario
+                    </button>
+            </div>
+        </form>
+    }
+ 
+</div>

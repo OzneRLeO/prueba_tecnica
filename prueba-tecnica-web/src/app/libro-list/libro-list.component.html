@@ -1,0 +1,36 @@
+<h2 class ="mb-5">Libros</h2>
+<div class="text-end">
+    <button class="btn btn-primary" routerLink="../../libro/new">
+            Nuevo
+    </button>
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>            
+            <th>Titulo</th>
+            <th>Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(libro of libros; track libro.id){
+            <tr>
+                <td>{{ libro.id }}</td>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.descripcion }}</td>
+                <td class="text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" [routerLink]="['../../libro', libro.id, 'edit']">
+                            Editar
+                        </button>
+                        <button class="btn btn-danger" (click)="deleteLibro(libro)">
+                            Cancelar
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+</table>
