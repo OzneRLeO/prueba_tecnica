@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: springboot-servicio-usuarios
+  r2dbc:
+    username: postgres
+    password: 123456
+    url: r2dbc:postgresql://localhost:5432
+ 
+server:
+  port: 8082
+  
+springdoc:  
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  api-docs:
+    path: /swagger-doc/v3/api-docs
+    groups:
+      enabled: true
